@@ -1,14 +1,14 @@
 df -h
 fdisk -l
-fdisk /dev/xvdf    #use your disk label obtained by the previous command
+fdisk /dev/sdb    #use your disk label obtained by the previous command
 
 ######## PAY ATTENTION AND AVOID FORMATTING THE SYSTEM DISK!!!!!!!!!!
 # fdisk commands: p, n (primary partition and use the defaults), p, w
-mkfs.ext4 /dev/xvdf1
+mkfs.ext4 /dev/sdb1
 mkdir /data2
 yum install vim
 vim /etc/fstab
-# add the line: /dev/xvdf1     /data2  ext4 defaults 0 0
+# add the line: /dev/sdb1     /data2  ext4 defaults 0 0
 
 ###############################
 #Inspect the fstaba file
@@ -22,7 +22,7 @@ vim /etc/fstab
 # See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
 #
 UUID=4a1c93d9-eb47-4f96-9f3d-920e52dc8cca /                       xfs     defaults        0 0
-/dev/xvdf1     /data2  ext4 defaults 0 0
+/dev/sdb1     /data2  ext4 defaults 0 0
 ##########################################################
 
 df -h
