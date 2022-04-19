@@ -1,7 +1,7 @@
 #####################################
 # get the condor dir with examples
  
-cp -r /data/BDP1_2021/condor/ .
+cp -r /data/BDP1_2022/condor/ .
 cd condor
 #####################################
  
