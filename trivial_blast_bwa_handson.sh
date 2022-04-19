@@ -1,5 +1,5 @@
 ######### login to the remote AWS server #################################
-ssh -i <YUOR_AWS_KEY> ec2-user@<AWS_server_Public_IP>
+ssh -i <YUOR_GCP_KEY> <your_user>@<GCP_server_Public_IP>
 sudo su -
 ##################################################################
 
@@ -7,12 +7,12 @@ sudo su -
 
 ################ Trivial Search ##################################
 
-cp /data/BDP1_2021/trivial/trivial_str_search.py .
-cp /data/BDP1_2021/trivial/shining.txt.gz .
+cp /data/BDP1_2022/trivial/trivial_str_search.py .
+cp /data/BDP1_2022/trivial/shining.txt.gz .
 gunzip -l shining.txt.gz
 gunzip shining.txt.gz
 md5sum shining.txt
-cat /data/BDP1_2021/trivial/md5_shining.txt
+cat /data/BDP1_2022/trivial/md5_shining.txt
 vim trivial_str_search.py
 ./trivial_str_search.py
 
@@ -22,7 +22,7 @@ vim trivial_str_search.py
 ######################
 
 #################### already installed ############################################
-ll /data/BDP1_2021/hg19/ncbi-blast-2.7.1+-1.x86_64.rpm
+ll /data/BDP1_2022/hg19/ncbi-blast-2.7.1+-1.x86_64.rpm
 # you need to be root
 yum localinstall ncbi-blast-2.7.1+-1.x86_64.rpm
 ###################################################################################
@@ -32,15 +32,15 @@ makeblastdb -in entire_hg19.fa -out entire_hg19BLAST -dbtype nucl  -parse_seqids
 ##################################################################################
 # INDEX is in /data/BDP1_2021/hg19/
 
-ls -l /data/BDP1_2021/hg19/
+ls -l /data/BDP1_2022/hg19/
 
 ########### get the query ###########################
-cp /data/BDP1_2021/hg19/myread.fa .
+cp /data/BDP1_2022/hg19/myread.fa .
 #####################################################
 
 
 ############ run blast ########################################################
-time blastn -db /data/BDP1_2021/hg19/entire_hg19BLAST -query myread.fa -out blast_myread.out
+time blastn -db /data/BDP1_2022/hg19/entire_hg19BLAST -query myread.fa -out blast_myread.out
 less blast_myread.out
 ###############################################################################
 
@@ -54,7 +54,7 @@ less blast_myread.out
 #########################################
 
 ####### Install your own bwa ########################
-cp /data/BDP1_2021/hg19/bwa-0.7.15.tar .
+cp /data/BDP1_2022/hg19/bwa-0.7.15.tar .
 ################## already installed ##########
 yum install gcc gcc-c++
 yum install zlib
@@ -75,23 +75,23 @@ bwa index -p hg19bwaidx -a bwtsw entire_hg19.fa
 ##########################################################################
 ####### INDEX is in /data/BDP1_2021/hg19/ ###############################################
 
-ls -ls /data/BDP1_2021/hg19/
+ls -ls /data/BDP1_2022/hg19/
 
 cd ..  # back to home
 
 # get the query ###########################
-cp /data/BDP1_2021/hg19/myread.fa .
+cp /data/BDP1_2022/hg19/myread.fa .
 ############################################
 
 ############## launch bwa ##################
-bwa aln -t 1 /data/BDP1_2021/hg19/hg19bwaidx /your_path/myread.fa > myread.sai
-bwa samse -n 10  /data/BDP1_2021/hg19/hg19bwaidx myread.sai myread.fa > myread.sam
+bwa aln -t 1 /data/BDP1_2022/hg19/hg19bwaidx /your_path/myread.fa > myread.sai
+bwa samse -n 10  /data/BDP1_2022/hg19/hg19bwaidx myread.sai myread.fa > myread.sam
 less myread.sam
 #####################################################################
 
 
 ################ READS LOCATION ####################################
 
-ls -l  /data/BDP1_2021/hg19/reads/Patients
+ls -l  /data/BDP1_2022/hg19/reads/Patients
 
 ######################################################################
