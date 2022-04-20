@@ -8,8 +8,6 @@ yum clean all
 #INSTALL CONDOR REPOs and PACKAGES
 wget http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo
 cp htcondor-stable-rhel7.repo /etc/yum.repos.d/
-wget http://htcondor.org/yum/RPM-GPG-KEY-HTCondor
-rpm --import RPM-GPG-KEY-HTCondor
 yum install condor-all
  
 #CONDOR BASIC CONFIGURATION
