@@ -1,17 +1,19 @@
-df -h
-fdisk -l
+df -h             #check the mounted filesystem
+fdisk -l          #list the attached disks
 fdisk /dev/sdb    #use your disk label obtained by the previous command
 
 ######## PAY ATTENTION AND AVOID FORMATTING THE SYSTEM DISK!!!!!!!!!!
+# now you have an interactive interface to create a new partition in the disk, use teh commands p, n, p, w keep the defaults
 # fdisk commands: p, n (primary partition and use the defaults), p, w
-mkfs.ext4 /dev/sdb1
-mkdir /data2
-yum install vim
-vim /etc/fstab
-# add the line: /dev/sdb1     /data2  ext4 defaults 0 0
+
+mkfs.ext4 /dev/sdb1   # create the ext4 filesystem
+mkdir /data2          # create a mountpoint for the new filesystem
+yum install vim       # if not present
+vim /etc/fstab        # edit the fstab file
+# add this line at the end of the fstab file:    /dev/sdb1     /data2  ext4 defaults 0 0
 
 ###############################
-#Inspect the fstaba file
+#Inspect the fstab file
 [root@ip-172-31-12-71 ~]# cat /etc/fstab
 
 #
@@ -26,7 +28,7 @@ UUID=4a1c93d9-eb47-4f96-9f3d-920e52dc8cca /                       xfs     defaul
 ##########################################################
 
 df -h
-mount -a
+mount -a    #mount all the filesystem listed in the fstab file
 df -h   #check the differences
 ll /data2
 chmod 775 /data2/
