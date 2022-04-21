@@ -24,7 +24,7 @@ vim trivial_str_search.py
 #################### already installed ############################################
 ll /data/BDP1_2022/hg19/ncbi-blast-2.7.1+-1.x86_64.rpm
 # you need to be root
-yum localinstall ncbi-blast-2.7.1+-1.x86_64.rpm
+yum localinstall /data/BDP1_2022/hg19/ncbi-blast-2.7.1+-1.x86_64.rpm
 ###################################################################################
 
 ############## create the index for BLAST -  ALREADY DONE ##########################
