@@ -3,7 +3,14 @@ ssh -i <YUOR_GCP_KEY> <your_user>@<GCP_server_Public_IP>
 sudo su -
 ##################################################################
 
+# Download the tgz file with the data, 
+wget <datafile link>   # launch this in a filesystem with enough space, i.e cd /data
 
+#check the checksum
+md5sum BDP1_2022.tgz    # must be 8fb4844e0b9d8a499bf5b39dc92f034f
+
+# uncompress and untar the file
+tar -xvzf BDP1_2022.tgz
 
 ################ Trivial Search ##################################
 
