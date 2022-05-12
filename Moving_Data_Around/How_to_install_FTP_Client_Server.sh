@@ -14,6 +14,8 @@ chroot_local_user=NO
 userlist_enable=YES
 userlist_file=/etc/vsftpd.userlist
 userlist_deny=NO
+pasv_promiscuous=YES
+
 
 #-----------------------------------------------------------------
 
