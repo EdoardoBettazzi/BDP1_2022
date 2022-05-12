@@ -15,6 +15,7 @@ userlist_enable=YES
 userlist_file=/etc/vsftpd.userlist
 userlist_deny=NO
 pasv_promiscuous=YES
+pasv_enable=YES
 
 
 #-----------------------------------------------------------------
