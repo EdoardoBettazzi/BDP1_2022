@@ -79,7 +79,7 @@ docker ps -a
 
 docker login
 docker images
-docker tag 5c2538cecdc2 dcesini/bdp1:ubuntu_with_ping_1.0
+docker tag 5c2538cecdc2 dcesini/bdp1_2022:ubuntu_with_ping_1.0
 docker push dcesini/bdp1:ubuntu_with_ping_1.0
 
 ############################################
